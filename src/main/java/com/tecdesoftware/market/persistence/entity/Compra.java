@@ -27,7 +27,7 @@ public class Compra
 
     private String activo;
 
-    public int getIdProducto() {
+    public int getIdProducto()  {
         return idProducto;
     }
 
