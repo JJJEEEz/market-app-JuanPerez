@@ -3,6 +3,7 @@ package com.tecdesoftware.market.persistence.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="compras")
@@ -11,21 +12,25 @@ public class Compra
     @Id //Es la llave primaria
     //Autogenera ids autoincrementables
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-
     @Column(name="id_producto")
     private int idProducto;
-
     @Column(name="id_cliente")
     private int idCliente;
-
     private LocalDateTime fecha;
-
     @Column(name="medio_pago")
     private String medioPago;
-
     private String comentario;
+    private String estado;
 
-    private String activo;
+    //Relación con Cliente: Muchas compras para un cliente
+    @ManyToOne
+    //Insertable/Updatable en false es para que no haya modificaciones
+    @JoinColumn(name="id_cliente", insertable=false, updatable=false)
+    private Cliente cliente;
+
+    //Una compra tiene muchos productos
+    @OneToMany(mappedBy = "compra")
+    private List<CompraProducto> productos;
 
     public int getIdProducto()  {
         return idProducto;
@@ -68,10 +73,10 @@ public class Compra
     }
 
     public String getActivo() {
-        return activo;
+        return estado;
     }
 
     public void setActivo(String activo) {
-        this.activo = activo;
+        this.estado = activo;
     }
 }
