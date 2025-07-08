@@ -16,7 +16,6 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
-
     // 1. Obtener todos los productos
     @GetMapping
     public List<Product> getAll() {
