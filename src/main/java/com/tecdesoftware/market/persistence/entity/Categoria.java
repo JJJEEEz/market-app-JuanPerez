@@ -14,7 +14,7 @@ public class Categoria {
     private String descripcion;
     private Boolean estado;
 
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
 
 

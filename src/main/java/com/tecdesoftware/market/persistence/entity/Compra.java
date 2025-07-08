@@ -10,8 +10,10 @@ import java.util.List;
 public class Compra
 {
     @Id //Es la llave primaria
+    @Column(name="id_compra")
     //Autogenera ids autoincrementables
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int idCompra;
     @Column(name="id_producto")
     private int idProducto;
     @Column(name="id_cliente")
@@ -31,6 +33,14 @@ public class Compra
     //Una compra tiene muchos productos
     @OneToMany(mappedBy = "compra")
     private List<CompraProducto> productos;
+
+    public int getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(int idCompra) {
+        this.idCompra = idCompra;
+    }
 
     public int getIdProducto()  {
         return idProducto;
