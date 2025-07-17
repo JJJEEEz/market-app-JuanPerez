@@ -13,11 +13,11 @@ public class Compra
     @Column(name="id_compra")
     //Autogenera ids autoincrementables
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int idCompra;
+    private Integer idCompra;
     @Column(name="id_producto")
-    private int idProducto;
+    private Integer idProducto;
     @Column(name="id_cliente")
-    private int idCliente;
+    private Integer idCliente;
     private LocalDateTime fecha;
     @Column(name="medio_pago")
     private String medioPago;
@@ -33,6 +33,31 @@ public class Compra
     //Una compra tiene muchos productos
     @OneToMany(mappedBy = "compra")
     private List<CompraProducto> productos;
+
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<CompraProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
+    }
 
     public int getIdCompra() {
         return idCompra;

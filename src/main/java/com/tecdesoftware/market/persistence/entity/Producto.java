@@ -25,13 +25,14 @@ public class Producto
     @JoinColumn(name="id_categoria", insertable=false, updatable=false)
     private Categoria categoria;
 
+
+
     public int getIdProducto() {
         return idProducto;
     }
 
     public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
+        this.idProducto = idProducto;}
 
     public String getNombre() {
         return nombre;
