@@ -12,7 +12,7 @@ public class Cliente {
     //No se pondra el @GereratedValue porque sera el INE (Se pondra manual)
     private int id;
     private String nombre;
-    private String apellido;
+    private String apellidos;
     private Long celular;
     private String direccion;
     @Column(name="correo_electronico")
@@ -39,12 +39,12 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public Long getCelular() {
